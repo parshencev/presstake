@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>simple banner</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function show(value){
+      var banner = document.querySelector(".pt-banner"),
+          prefix = "pt-banner-";
+          classes = ["books","clothes_shop","films","gadgets"];
+      classes.map(function(item){
+        banner.classList.remove(prefix+item);
+      });
+      banner.classList.add(prefix+value);
+      banner.classList.remove(prefix+"show");
+      setTimeout(function(){ banner.classList.add(prefix+"show"); }, 100);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <input type="button" value="Фильмы" onclick="show('films');"><br>
+    <input type="button" value="Книги" onclick="show('books');"><br>
+    <input type="button" value="Магазины одежды" onclick="show('clothes_shop');"><br>
+    <input type="button" value="Гаджеты" onclick="show('gadgets');"><br>
+  </div>
+  <div class="pt-banner pt-banner-show pt-banner-gadgets">
+    <!-- <div class="pt-banner-list">
+      <div class="pt-banner-list-item">Lorem ipsum.</div>
+      <div class="pt-banner-list-item">Perferendis, aliquam.</div>
+      <div class="pt-banner-list-item">Dolore, fugit.</div>
+      <div class="pt-banner-list-item">Molestias, quas.</div>
+      <div class="pt-banner-list-item">Saepe, rem!</div>
+      <div class="pt-banner-list-item">Nulla, officia.</div>
+      <div class="pt-banner-list-item">Perferendis, magni!</div>
+      <div class="pt-banner-list-item">Recusandae, dignissimos.</div>
+      <div class="pt-banner-list-item">Quidem, laudantium.</div>
+      <div class="pt-banner-list-item">Ipsa, provident.</div>
+    </div> -->
+    <div class="pt-banner-main">
+      <div class="pt-banner-logo-wrapper">
+      </div>
+      <div class="pt-banner-text-wrapper">
+        <div class="pt-banner-text-top">
+          Лучшие цены в он-лайн магазинах
+        </div>
+        <div class="pt-banner-text-middle">
+          Где купить товары из этой статьи?
+        </div>
+        <div class="pt-banner-text-bottom">
+          powered by
+          <span class="pt-banner-text-bottom__colored">PressTake</span>
+        </div>
+      </div>
+      <a href="#" class="pt-banner-link">Узнать!</a>
+      <input type="input" class="pt-banner-close">
+    </div>
+  </div>
+</body>
+</html>

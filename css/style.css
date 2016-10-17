@@ -1,0 +1,268 @@
+/* шрифты */
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/roboto-regular.woff2");
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url("../fonts/roboto-bold.woff2");
+}
+@font-face {
+  font-family: RobotoCondensed;
+  src: url("../fonts/robotocondensed-regular.woff2");
+}
+@font-face {
+  font-family: RobotoCondensedBold;
+  src: url("../fonts/robotocondensed-bold.woff2");
+}
+@font-face {
+  font-family: PTBold;
+  src: url("../fonts/pt_serif-web-bold.woff2");
+}
+/* стили по умолчанию */
+body{
+  margin: 0;
+}
+.pt-banner{
+  position: fixed;
+  display: none;
+  bottom: 0;
+  width: 100%;
+  height: 162px;
+}
+.pt-banner-main{
+  display: none;
+  height: 162px;
+  background-color: #fafafa;
+  background-position: right;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 27.55px 1.45px rgba(0, 0, 0, 0.39);
+}
+.pt-banner-logo-wrapper{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin-left: 24px;
+  margin-top: 37px;
+  background-image: url("../img/logo.png");
+}
+.pt-banner-logo-wrapper:before{
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 13px;
+  top: -21px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-image: url("../img/arrow.png");
+  animation: arrow-jump .5s linear infinite;
+}
+.pt-banner-text-wrapper{
+  height: 162px;
+  padding-left: 149px;
+  font: 19px/22px Roboto;
+  color: #808080;
+  overflow: hidden;
+}
+.pt-banner-text-top{
+  margin-top: 15px;
+  animation: text-goLeft 1s ease;
+}
+.pt-banner-text-middle{
+  margin-top: 20px;
+  margin-bottom: 14px;
+  color: #000101;
+  animation: text-goRight .8s ease;
+}
+.pt-banner-text-bottom{
+  margin-bottom: 9px;
+  animation: text-goLeft 1.5s ease;
+}
+.pt-banner-text-bottom__colored{
+  color: #34ad49;
+}
+.pt-banner-link{
+  position: absolute;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}
+.pt-banner-close{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(255,255,255,.67);
+  border: 1px solid rgba(153, 153, 153, 0.67);
+  border-radius: 50%;
+  background-image: url("../img/close.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+  cursor: pointer;
+}
+/* первичный показ банера только на мобильном устройстве*/
+.pt-banner.pt-banner-show{
+  display: block;
+}
+.pt-banner-show .pt-banner-list{
+  display: none;
+}
+.pt-banner-show .pt-banner-main{
+  display: block;
+  animation: banner-show .5s ease;
+}
+/* стили для фильмов */
+.pt-banner-films .pt-banner-link:before, .pt-banner-films .pt-banner-link:after{
+  position: absolute;
+  content: "";
+  height: 42px;
+  width: 19px;
+  background-image: url("../img/button_border.png");
+}
+.pt-banner-films .pt-banner-link:before{
+  left: -19px;
+}
+.pt-banner-films .pt-banner-link:after{
+  right: -19px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.pt-banner-films .pt-banner-link{
+  width: 104px;
+  height: 42px;
+  right: 119px;
+  top: 108px;
+  background: #000;
+  color: #fefefe;
+  font: 27px/42px RobotoBold;
+}
+.pt-banner-films .pt-banner-main{
+  background-image: url("../img/background_film.png");
+}
+.pt-banner-films .pt-banner-text-middle{
+  font-size: 30px;
+  line-height: 30px;
+  width: 264px;
+  font-family: RobotoCondensedBold;
+}
+/* стили для магазинов одежды */
+.pt-banner-clothes_shop .pt-banner-main{
+  background-image: url("../img/background_clothes.png");
+}
+.pt-banner-clothes_shop .pt-banner-text-middle{
+  font-size: 30px;
+  line-height: 30px;
+  width: 264px;
+  font-family: RobotoCondensed;
+}
+.pt-banner-clothes_shop .pt-banner-link{
+  width: 145px;
+  height: 45px;
+  right: 176px;
+  top: 91px;
+  font: 33px/45px RobotoCondensed;
+  color: #fefefe;
+  text-transform: uppercase;
+  background: #ff0066;
+  box-shadow: 0px 0px 6.44px 0.56px rgba(140, 140, 140, 0.37);
+}
+/* стили для книг */
+.pt-banner-books .pt-banner-text-middle{
+  font-family: PTBold;
+  font-size: 30px;
+  line-height: 30px;
+  width: 312px;
+}
+.pt-banner-books .pt-banner-link {
+  width: 124px;
+  height: 42px;
+  right: 116px;
+  top: 108px;
+  line-height: 42px;
+  font-size: 28px;
+  font-family: RobotoBold;
+  color: #fefefe;
+  padding-left: 14px;
+  box-sizing: border-box;
+  text-shadow: 0px 0px 4.1px rgba(107, 49, 65, 0.32);
+  text-transform: none;
+  background-image: -moz-linear-gradient( -90deg, rgb(107,38,130) 0%, rgb(72,33,116) 100%);
+  background-image: -webkit-linear-gradient( -90deg, rgb(107,38,130) 0%, rgb(72,33,116) 100%);
+  background-image: -ms-linear-gradient( -90deg, rgb(107,38,130) 0%, rgb(72,33,116) 100%);
+}
+.pt-banner-books .pt-banner-link:after{
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 42px;
+  right: -14px;
+  background-image: url("../img/button_border_book.png");
+}
+.pt-banner-books .pt-banner-main{
+  background-image: url("../img/background_books.png");
+  background-position: right bottom;
+}
+/* стили для гаджетов */
+.pt-banner-gadgets .pt-banner-link{
+  width: 138px;
+  height: 54px;
+  right: 118px;
+  top: 88px;
+  font-family: RobotoBold;
+  font-size: 33px;
+  line-height: 54px;
+  background: rgba(48,218,48,.88);
+  color: #fefefe;
+  text-shadow: 0px 0px 2.7px rgba(22, 110, 27, 0.32);
+}
+.pt-banner-gadgets .pt-banner-link:before, .pt-banner-gadgets .pt-banner-link:after{
+  position: absolute;
+  content: "";
+  width: 23px;
+  height: 54px;
+  background-image: url("../img/button_border_gadgets.png");
+}
+.pt-banner-gadgets .pt-banner-link:before{
+  left: -23px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.pt-banner-gadgets .pt-banner-link:after{
+  right: -23px;
+}
+.pt-banner-gadgets .pt-banner-main{
+  background-image: url("../img/background_gadgets.png");
+}
+.pt-banner-gadgets .pt-banner-text-middle{
+  font-family: Roboto;
+  font-size: 31px;
+  line-height: 30px;
+  width: 309px;
+}
+@keyframes arrow-jump {
+  0% { top: -21px; }
+  50% { top: -17px; }
+  80% { top: -27px; }
+  100% { top: -21px; }
+}
+@keyframes text-goLeft {
+  0%{ transform: translateX(100%); opacity: 0;}
+  50% { opacity: .2; }
+  100%{ transform: translateX(0); opacity: 1;}
+}
+@keyframes text-goRight {
+  0%{ transform: translateX(-100%); opacity: 0;}
+  50% { opacity: .2; }
+  100%{ transform: translateX(0); opacity: 1; }
+}
+@keyframes banner-show{
+  0%{ transform: translateY(170px); }
+  100%{ transform: translateY(0); }
+}
