@@ -8,7 +8,7 @@
     function show(value){
       var banner = document.querySelector(".pt-banner"),
           prefix = "pt-banner-";
-          classes = ["books","clothes_shop","films","gadgets"];
+          classes = ["books","clothes_shop","films","gadgets","games"];
       classes.map(function(item){
         banner.classList.remove(prefix+item);
       });
@@ -16,6 +16,23 @@
       banner.classList.remove(prefix+"show");
       setTimeout(function(){ banner.classList.add(prefix+"show"); }, 100);
     }
+    window.addEventListener("DOMContentLoaded", function(){
+      document.getElementById("pt-banner-close_list").addEventListener("click", function(){
+        if (document.querySelector(".pt-banner").classList.contains("pt-banner-open")) {
+          document.querySelector(".pt-banner").classList.remove("pt-banner-open");
+        }
+      });
+      document.querySelector(".pt-banner-main").addEventListener("click", function(e){
+        e = event || window.event;
+        if (!e.target.classList.contains("pt-banner-close") && !document.querySelector(".pt-banner").classList.contains("pt-banner-open")) {
+          document.querySelector(".pt-banner").classList.add("pt-banner-open");
+        } else {
+          if (e.target.id == "pt-banner-close_banner") {
+            document.querySelector(".pt-banner").classList.remove("pt-banner-show");
+          }
+        }
+      });
+    });
   </script>
 </head>
 <body>
@@ -24,20 +41,92 @@
     <input type="button" value="Книги" onclick="show('books');"><br>
     <input type="button" value="Магазины одежды" onclick="show('clothes_shop');"><br>
     <input type="button" value="Гаджеты" onclick="show('gadgets');"><br>
+    <input type="button" value="Игры" onclick="show('games');">
   </div>
-  <div class="pt-banner pt-banner-show pt-banner-gadgets">
-    <!-- <div class="pt-banner-list">
-      <div class="pt-banner-list-item">Lorem ipsum.</div>
-      <div class="pt-banner-list-item">Perferendis, aliquam.</div>
-      <div class="pt-banner-list-item">Dolore, fugit.</div>
-      <div class="pt-banner-list-item">Molestias, quas.</div>
-      <div class="pt-banner-list-item">Saepe, rem!</div>
-      <div class="pt-banner-list-item">Nulla, officia.</div>
-      <div class="pt-banner-list-item">Perferendis, magni!</div>
-      <div class="pt-banner-list-item">Recusandae, dignissimos.</div>
-      <div class="pt-banner-list-item">Quidem, laudantium.</div>
-      <div class="pt-banner-list-item">Ipsa, provident.</div>
-    </div> -->
+  <div class="pt-banner pt-banner-show pt-banner-games">
+    <div class="pt-banner-list-wrapper">
+      <div class="pt-banner-list-header">
+        <div class="pt-banner-list-header-selector-wrapper">
+          <div class="pt-banner-list-header-description">
+            Актуально для
+          </div>
+          <select name="city" id="pt-banner-selector" class="pt-banner-list-header-selector">
+            <option value="1" class="pt-banner-list-header-selector-option">Москвы</option>
+            <option value="2" class="pt-banner-list-header-selector-option">Архангельска</option>
+            <option value="3" class="pt-banner-list-header-selector-option">Подольска</option>
+            <option value="4" class="pt-banner-list-header-selector-option">Астрахани</option>
+            <option value="5" class="pt-banner-list-header-selector-option">Киева</option>
+          </select>
+        </div>
+        <div class="pt-banner-list-header-source-wrapper">
+          <div class="pt-banner-list-header-source-before">
+            По данным
+          </div>
+          <div class="pt-banner-list-header-source-after">
+            Яндекс.Маркет
+          </div>
+        </div>
+      </div>
+      <input type="button" class="pt-banner-close" id="pt-banner-close_list">
+      <div class="pt-banner-list-scroll-wrapper">
+        <div class="pt-banner-list">
+          <div class="pt-banner-list-item pt-banner-list-item__alternative">
+            <div class="pt-banner-alternative_text">
+              <div class="pt-banner-alternative_text-top">Товара ручка крассная НЕТ В ПРОДАЖЕ</div>
+              <div class="pt-banner-alternative_text-bottom">товар-аналог</div>
+            </div>
+            <div class="pt-banner-list-image-wrapper">
+              <img src="http://knijky.ru/sites/default/files/styles/264x390/public/113345.jpg?itok=ANYEo7Qk" alt="" class="pt-banner-list-image">
+            </div>
+            <a href="#" class="pt-banner-list-link">somelink.ru</a>
+            <div class="pt-banner-item-title">some product name</div>
+            <div class="pt-banner-item-description">description</div>
+            <div class="pt-banner-item-price">59 p.</div>
+            <a href="" class="pt-banner-item-shop_button pt-banner-item-shop_button__google">В магазин</a>
+          </div>
+          <div class="pt-banner-list-item">
+            <div class="pt-banner-list-image-wrapper">
+              <img src="http://world-mans.ru/image/42538_900.jpg" alt="" class="pt-banner-list-image">
+            </div>
+            <a href="#" class="pt-banner-list-link">somelink.ru</a>
+            <div class="pt-banner-item-title">some product name</div>
+            <div class="pt-banner-item-description">description</div>
+            <div class="pt-banner-item-price">59 p.</div>
+            <a href="" class="pt-banner-item-shop_button">В магазин</a>
+          </div>
+          <div class="pt-banner-list-item">
+            <div class="pt-banner-list-image-wrapper">
+              <img src="http://knijky.ru/sites/default/files/styles/264x390/public/113345.jpg?itok=ANYEo7Qk" alt="" class="pt-banner-list-image">
+            </div>
+            <a href="#" class="pt-banner-list-link">somelink.ru</a>
+            <div class="pt-banner-item-title">some product name</div>
+            <div class="pt-banner-item-description">description</div>
+            <div class="pt-banner-item-price">59 p.</div>
+            <a href="" class="pt-banner-item-shop_button pt-banner-item-shop_button__apple">В магазин</a>
+          </div>
+          <div class="pt-banner-list-item">
+            <div class="pt-banner-list-image-wrapper">
+              <img src="http://knijky.ru/sites/default/files/styles/264x390/public/113345.jpg?itok=ANYEo7Qk" alt="" class="pt-banner-list-image">
+            </div>
+            <a href="#" class="pt-banner-list-link">somelink.ru</a>
+            <div class="pt-banner-item-title">some product name</div>
+            <div class="pt-banner-item-description">description</div>
+            <div class="pt-banner-item-price">59 p.</div>
+            <a href="" class="pt-banner-item-shop_button">В магазин</a>
+          </div>
+          <div class="pt-banner-list-item">
+            <div class="pt-banner-list-image-wrapper">
+              <img src="http://knijky.ru/sites/default/files/styles/264x390/public/113345.jpg?itok=ANYEo7Qk" alt="" class="pt-banner-list-image">
+            </div>
+            <a href="#" class="pt-banner-list-link">somelink.ru</a>
+            <div class="pt-banner-item-title">some product name</div>
+            <div class="pt-banner-item-description">description</div>
+            <div class="pt-banner-item-price">59 p.</div>
+            <a href="" class="pt-banner-item-shop_button">В магазин</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="pt-banner-main">
       <div class="pt-banner-logo-wrapper">
       </div>
@@ -45,8 +134,14 @@
         <div class="pt-banner-text-top">
           Лучшие цены в он-лайн магазинах
         </div>
+        <div class="pt-banner-text-top-open">
+          Посмотреть больше предложений
+        </div>
         <div class="pt-banner-text-middle">
           Где купить товары из этой статьи?
+        </div>
+        <div class="pt-banner-text-middle-open">
+          PressTake.com
         </div>
         <div class="pt-banner-text-bottom">
           powered by
@@ -54,7 +149,7 @@
         </div>
       </div>
       <a href="#" class="pt-banner-link">Узнать!</a>
-      <input type="input" class="pt-banner-close">
+      <input type="button" class="pt-banner-close" id="pt-banner-close_banner">
     </div>
   </div>
 </body>
