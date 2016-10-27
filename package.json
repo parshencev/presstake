@@ -1,0 +1,26 @@
+{
+  "name": "banner",
+  "version": "1.0.0",
+  "description": "presstake banner",
+  "main": "index.js",
+  "scripts": {
+    "gulp" : "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parshencev/presstake.git"
+  },
+  "author": "parshencev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parshencev/presstake/issues"
+  },
+  "homepage": "https://github.com/parshencev/presstake#readme",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}
