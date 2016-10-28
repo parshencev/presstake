@@ -6,8 +6,8 @@ var gulp = require("gulp"),
     cleanCSSPlugin = new LessPluginCleanCSS({advanced: true}),
     browserSync = require('browser-sync').create(),
     paths = {
-      less : "./less/*.less",
-      css : "./css/",
+      less : "less/*.less",
+      css : "css/",
       server : "./"
     };
 
@@ -16,7 +16,7 @@ gulp.task("default", ["less", "serve"]);
 gulp.task("less", function(){
   return  gulp.src(paths.less)
           .pipe(less({
-            pugins : [autoprefixPlugin, cleanCSSPlugin]
+            plugins : [autoprefixPlugin, cleanCSSPlugin]
           }))
           .pipe(gulp.dest(paths.css));
 });
